@@ -1,29 +1,31 @@
+#include <stdio.h>
+#include "main.h"
+
 /**
- * main - finds and prints the sum of the even-valued terms
- * followed by a new line
- * Return: Always 0 (Success)
+ * main - print sum of all even fibonacci numbers under 4x10^6
+ *
+ * Return: Nothing.
  */
+
 int main(void)
 {
-	int i;
-	unsigned long int j, k, next, sum;
+	unsigned long x, y, z, sum;
 
-	j = 1;
-	k = 2;
+	z = 0;
+	x = 0;
+	y = 1;
 	sum = 0;
 
-	for (i = 1; i <= 33; ++i)
+	while (z < 4000000)
 	{
-		if (j < 4000000 && (j % 2) == 0)
-		{
-			sum = sum + j;
-		}
-		next = j + k;
-		j = k;
-		k = next;
+		z = x + y;
+		x = y;
+		y = z;
+
+		if (z % 2 == 0)
+			sum += z;
 	}
 
 	printf("%lu\n", sum);
-
 	return (0);
 }
